@@ -112,6 +112,10 @@ public class ROT13Test
 
         String actual = test.crypt(test.crypt(expected));
 
+
         assertEquals(expected, actual);
     }
 }
+
+// /Users/jwilkinson
+// + /dev/SimpleCrypt/sonnet18.txt

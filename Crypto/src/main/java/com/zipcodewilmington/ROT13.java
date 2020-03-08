@@ -1,8 +1,6 @@
 package com.zipcodewilmington;
 
-import static java.lang.Character.isLowerCase;
-import static java.lang.Character.isUpperCase;
-import static java.lang.Character.toLowerCase;
+import static java.lang.Character.*;
 
 public class ROT13
 {
@@ -106,33 +104,20 @@ public class ROT13
 
     public String rotate(String s, Character c)
     {
-        int rotateShift = (int) c - 65;
-        char[] phraseAsChars = s.toCharArray();
-        StringBuilder rotatedPhrase = new StringBuilder();
+        char[] phrase = s.toCharArray();
+        Integer idx;
 
-        for (char letter : phraseAsChars)
+        for(idx = 0; idx < phrase.length; idx++)
         {
-            int charUnicodeValue = (int) letter;
-            if (64 < letter && letter < 91)
+            if(phrase[idx] == c)
             {
-                charUnicodeValue -= 64;
-                charUnicodeValue = (charUnicodeValue + rotateShift) % 26;
-                charUnicodeValue += 64;
-                rotatedPhrase.append((char) charUnicodeValue);
-            }
-
-            else if (96 < letter && letter < 123)
-            {
-                charUnicodeValue -= 96;
-                charUnicodeValue = (charUnicodeValue + rotateShift) % 26;
-                charUnicodeValue += 96;
-                rotatedPhrase.append((char) charUnicodeValue);
-            }
-            else
-            {
-                rotatedPhrase.append(letter);
+                break;
             }
         }
+
+        StringBuilder rotatedPhrase = new StringBuilder();
+        rotatedPhrase.append(s.substring(idx));
+        rotatedPhrase.append(s.substring(0, idx));
 
         return rotatedPhrase.toString();
     }

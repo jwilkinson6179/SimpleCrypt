@@ -44,18 +44,18 @@ public class ROT13
             if(64 < letter && letter < 91)
             {
                 int charUnicodeValue = (int) letter;
-                charUnicodeValue -= 64;
-                charUnicodeValue = (charUnicodeValue + shift) % 26;
-                charUnicodeValue += 64;
+                charUnicodeValue -= 65;
+                charUnicodeValue = (charUnicodeValue + shift + 26) % 26;
+                charUnicodeValue += 65;
                 encrypted.append((char)charUnicodeValue);
             }
             // For lower-case
             else if(96 < letter && letter < 123)
             {
                 int charUnicodeValue = (int) letter;
-                charUnicodeValue -= 96;
-                charUnicodeValue = (charUnicodeValue + shift) % 26;
-                charUnicodeValue += 96;
+                charUnicodeValue -= 97;
+                charUnicodeValue = (charUnicodeValue + shift + 26) % 26;
+                charUnicodeValue += 97;
                 encrypted.append((char)charUnicodeValue);
             }
             else
@@ -79,18 +79,18 @@ public class ROT13
             if(64 < letter && letter < 91)
             {
                 int charUnicodeValue = (int) letter;
-                charUnicodeValue -= 64;
+                charUnicodeValue -= 65;
                 charUnicodeValue = (charUnicodeValue - shift + 26) % 26;
-                charUnicodeValue += 64;
+                charUnicodeValue += 65;
                 encrypted.append((char)charUnicodeValue);
             }
             // For lower-case
             else if(96 < letter && letter < 123)
             {
                 int charUnicodeValue = (int) letter;
-                charUnicodeValue -= 96;
+                charUnicodeValue -= 97;
                 charUnicodeValue = (charUnicodeValue - shift + 26) % 26;
-                charUnicodeValue += 96;
+                charUnicodeValue += 97;
                 encrypted.append((char)charUnicodeValue);
             }
             else

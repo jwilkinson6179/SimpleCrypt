@@ -90,4 +90,28 @@ public class ROT13Test
         // Then
         assertTrue(actual.equals(Q1));
     }
+
+    @Test
+    public void caeserCipher()
+    {
+        CaesarCipher rome = new CaesarCipher();
+
+        String expected = "Hail Caeser!";
+
+        String actual = rome.crypt(rome.crypt(expected));
+
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    public void myCipherTest()
+    {
+        JamesWCipher test = new JamesWCipher();
+
+        String expected = "I'm James Wilkinson, and this is my cipher?!";
+
+        String actual = test.crypt(test.crypt(expected));
+
+        assertEquals(expected, actual);
+    }
 }

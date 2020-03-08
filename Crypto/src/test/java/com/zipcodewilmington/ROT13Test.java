@@ -1,8 +1,11 @@
+package com.zipcodewilmington;
+
 import org.junit.Test;
 
 import static org.junit.Assert.*;
 
-public class ROT13Test {
+public class ROT13Test
+{
 
 
     @Test
@@ -16,7 +19,7 @@ public class ROT13Test {
         String actual = cipher.rotate(s1, 'A');
 
         // Then
-        assertTrue(actual.equals(s2));
+        assertEquals(s2, actual);
     }
 
     @Test
@@ -30,7 +33,7 @@ public class ROT13Test {
         String actual = cipher.rotate(s1, 'D');
 
         // Then
-        assertTrue(actual.equals(s2));
+        assertEquals(s2, actual);
     }
 
     @Test
@@ -45,7 +48,7 @@ public class ROT13Test {
         System.out.println(s1);
         System.out.println(actual);
         // Then
-        assertTrue(actual.equals(s2));
+        assertEquals(s2, actual);
     }
 
     @Test
@@ -64,14 +67,14 @@ public class ROT13Test {
         System.out.println(Q1);
         System.out.println(A1);
         // Then
-        assertTrue(actual.equals(A1));
+        assertEquals(A1, actual);
 
         // When
         String actual2 = cipher.decrypt(Q2);
         System.out.println(Q2);
         System.out.println(A2);
         // Then
-        assertTrue(actual2.equals(A2));
+        assertEquals(A2, actual2);
     }
     @Test
     public void cryptTest2() {
@@ -87,5 +90,4 @@ public class ROT13Test {
         // Then
         assertTrue(actual.equals(Q1));
     }
-
 }

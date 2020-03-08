@@ -121,4 +121,9 @@ public class ROT13
 
         return rotatedPhrase.toString();
     }
+
+    public void encryptFile(String fileName)
+    {
+
+    }
 }

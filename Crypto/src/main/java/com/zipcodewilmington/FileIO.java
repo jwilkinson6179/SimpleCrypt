@@ -7,28 +7,34 @@ public class FileIO
 {
     public static final String HOME = System.getProperty("user.home");
 
-    public static ArrayList<String> readFromFile(String fileName) throws IOException
+    public static String readFromFile(String fileName) throws IOException
     {
-        File file = new File(HOME + fileName);
+        File file = new File(fileName);
         BufferedReader br = new BufferedReader(new FileReader(file));
         String line;
-        ArrayList<String> output = new ArrayList<>();
+        ArrayList<String> readContent = new ArrayList<>();
 
         while ((line = br.readLine()) != null)
         {
-            output.add(line + "\n");
+            readContent.add(line + "\n");
         }
         br.close();
 
-        return output;
+        StringBuilder output = new StringBuilder();
+        for(String element : readContent)
+        {
+            output.append(element);
+        }
+
+        return output.toString();
     }
 
-    public static void writeToFile(ArrayList<String> content, String fileName) throws IOException
+    public static void writeToFile(String content, String fileName) throws IOException
     {
-        File file = new File(HOME + fileName);
+        File file = new File(fileName);
         BufferedWriter bw = new BufferedWriter(new FileWriter(file));
-
-        for(String line : content) {
+        String[] contentSeperatedByLine = content.split("\n");
+        for(String line : contentSeperatedByLine) {
             bw.write(line);
             bw.newLine();
         }
